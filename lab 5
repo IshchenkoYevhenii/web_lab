@@ -1,0 +1,90 @@
+// Функція для заміни всіх голосних на '*'
+function replaceVowels(str) {
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  let result = '';
+
+  for (let i = 0; i < str.length; i++) {
+    result += vowels.includes(str[i]) ? '*' : str[i];
+  }
+
+  return result;
+}
+
+console.log(replaceVowels("hello world")); // Виведе: "h*ll* w*rld"
+console.log(replaceVowels("Javascript"));  // Виведе: "J*v*scr*pt"
+
+module.exports = replaceVowels;
+
+// Функція для зворотного порядку рядка без чисел
+function reverseWithoutNumbers(str) {
+  let lettersOnly = [];
+
+  for (let i = 0; i < str.length; i++) {
+    if (isNaN(str[i]) || str[i] === ' ') {
+      lettersOnly.push(str[i]);
+    }
+  }
+
+  return lettersOnly.reverse().join('');
+}
+
+console.log(reverseWithoutNumbers("hello123world456")); // Виведе: "dlrowolleh"
+console.log(reverseWithoutNumbers("abc123xyz"));       // Виведе: "zyxabc"
+
+module.exports = reverseWithoutNumbers;
+
+// Функція для підрахунку суми елементів масиву
+function sumArray(numbers) {
+  let sum = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+
+  return sum;
+}
+
+console.log(sumArray([1, 2, 3, 4, 5])); // Виведе: 15
+console.log(sumArray([10, 20, 30]));    // Виведе: 60
+
+module.exports = sumArray;
+
+// Функція для знаходження максимального числа в масиві
+function findMax(numbers) {
+  if (numbers.length === 0) {
+    return null;
+  }
+
+  let max = numbers[0];
+
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+  }
+
+  return max;
+}
+
+console.log(findMax([3, 5, 7, 2, 8])); // Виведе: 8
+console.log(findMax([10, 20, 5, 30])); // Виведе: 30
+
+module.exports = findMax;
+
+// Функція для підрахунку кількості входжень символу в рядку
+function countOccurrences(str, char) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countOccurrences("hello world", 'o')); // Виведе: 2
+console.log(countOccurrences("banana", 'a'));       // Виведе: 3
+
+module.exports = countOccurrences;
