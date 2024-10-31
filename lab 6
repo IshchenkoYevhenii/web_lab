@@ -1,0 +1,120 @@
+html
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор</h1>
+        <form id="calculator-form">
+            <input type="text" id="number1" placeholder="Введіть перше число" required>
+            <input type="text" id="number2" placeholder="Введіть друге число" required>
+            <button type="submit">Додати</button>
+        </form>
+        <div id="result-container" class="result hidden">
+            <p id="result"></p>
+            <button id="toggle-result">Приховати результат</button>
+        </div>
+        <p id="error-message" class="error hidden"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+
+js
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('calculator-form');
+    const number1Input = document.getElementById('number1');
+    const number2Input = document.getElementById('number2');
+    const resultContainer = document.getElementById('result-container');
+    const resultText = document.getElementById('result');
+    const errorMessage = document.getElementById('error-message');
+    const toggleResultButton = document.getElementById('toggle-result');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Запобігаємо перезавантаженню сторінки
+
+        const number1 = parseFloat(number1Input.value);
+        const number2 = parseFloat(number2Input.value);
+        errorMessage.classList.add('hidden');
+
+        // Валідація полів
+        if (isNaN(number1) || isNaN(number2)) {
+            errorMessage.textContent = 'Будь ласка, введіть коректні числа.';
+            errorMessage.classList.remove('hidden');
+            return;
+        }
+
+        const sum = number1 + number2;
+        resultText.textContent = `Результат: ${sum}`;
+        resultContainer.classList.remove('hidden');
+        toggleResultButton.textContent = 'Приховати результат';
+    });
+
+    toggleResultButton.addEventListener('click', function () {
+        if (resultContainer.classList.contains('hidden')) {
+            resultContainer.classList.remove('hidden');
+            toggleResultButton.textContent = 'Приховати результат';
+        } else {
+            resultContainer.classList.add('hidden');
+            toggleResultButton.textContent = 'Показати результат';
+        }
+    });
+});
