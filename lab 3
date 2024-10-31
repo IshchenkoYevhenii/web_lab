@@ -1,0 +1,106 @@
+httm
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота №3</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Yevhenii</div>
+    </header>
+
+    <main>
+        <section>
+            <h1>Практична робота №3</h1>
+            <p>Початок створення веб-сайту.</p>
+        </section>
+        <article>
+            <p>Вивчення мов програм як HTML and CSS.</p>
+        </article>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="#">Головна</a></li>
+            <li><a href="#">Про нас</a></li>
+            <li><a href="#">Контакти</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>
+
+
+css
+/* Основні стилі */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Стилі для header */
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+/* Стилі для main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Стилі для секції */
+section {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+article {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    width: 80%;
+    text-align: center;
+}
+
+/* Стилі для footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
